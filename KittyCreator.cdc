@@ -19,6 +19,8 @@ access(all) contract KittyCreator {
     // Creates a new kitty
     access(all) fun createKitty(name: String, dna: UInt64) {
         self.totalKitties = self.totalKitties + 1
+        let newKitty: Kitty = Kitty(name: name, dna: dna)
+        self.kitties.append(newKitty)
     }
 
     // Constructor (initializing contract attributes)
